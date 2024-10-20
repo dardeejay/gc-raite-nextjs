@@ -22,6 +22,10 @@ import { useRouter } from "next/router";
 import { useHappenContext } from "@/context/HappenContext";
 import { urlify } from "@/lib/utils";
 import { LuTicket } from "react-icons/lu";
+import { twMerge } from "tailwind-merge";
+import { NAV_ROUTES } from "@/constants/routes";
+import CustomButton from "../custom-ui/CustomButton";
+import poppins from "@/fonts/Poppins";
 
 const formatTime = (date: Date) => {
   return date.toLocaleTimeString("en-US", {
@@ -52,20 +56,24 @@ const Navbar: NextPage = () => {
 
   return (
     <section
-      className={`sticky top-0 z-[98] flex flex-1 items-center justify-between bg-[#131517]/50 px-[16px] py-[12px]`}
+      className={`z-[98] flex flex-1 items-center justify-between px-20 py-8`}
     >
       <Link href="/">
-        <img className="h-5" src="/assets/logo/icon.png" alt="" />
+        {/* <img className="h-5" src="/assets/logo/icon.png" alt="" /> */}
+        <p>LOGO</p>
       </Link>
-      <div className="flex items-center gap-4 text-[14px] font-medium text-[#FFFFFFA3]">
-        <div className="hidden md:block">{formatTime(currentTime)} GMT+8</div>
-        {/* <button>Explore Events</button> */}
-        {ctxAccount && (
-          <Link href="/create" className="text-[14px]">
-            Create Event
-          </Link>
-        )}
-
+      <div className="flex items-center justify-center gap-24">
+        {NAV_ROUTES.map((route) => {
+          return (
+            <Link href={route.route} key={route.name}>
+              <p className={"text-text-primary " + poppins.className}>
+                {route.name}
+              </p>
+            </Link>
+          );
+        })}
+      </div>
+      <div className="flex items-center justify-center">
         {isAuthenticated ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -133,7 +141,7 @@ const Navbar: NextPage = () => {
           </DropdownMenu>
         ) : (
           // <LogoutButton className="rounded-3xl bg-gray-500/50 px-4 py-1 text-[14px] text-[#FFFFFFA3] hover:bg-gray-400" />
-          <LoginButton className="rounded-3xl bg-gray-500/50 px-4 py-1 text-[14px] text-[#FFFFFFA3] hover:bg-gray-400" />
+          <LoginButton className="" />
         )}
       </div>
     </section>

@@ -7,6 +7,7 @@ import {
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/router";
 import { DropdownMenuShortcut } from "../ui/dropdown-menu";
+import CustomButton from "../custom-ui/CustomButton";
 
 function selectProvider(providers: IdentityProvider[]): IdentityProvider {
   if (providers.length === 0) {
@@ -46,9 +47,9 @@ const LoginButton = ({
   }
 
   return (
-    <button onClick={() => login()} className={className} {...props}>
+    <CustomButton onClick={() => login()} className={" px-10"}>
       {children || "Sign In"}
-    </button>
+    </CustomButton>
   );
 };
 
