@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import poppins from "@/fonts/Poppins";
+import manrope from "@/fonts/Manrope";
 interface CustomButtonProps {
   children?: React.ReactNode | React.ReactNode[] | string;
   className?: string;
@@ -16,7 +16,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       className={twMerge(
         "rounded-lg border border-text-primary bg-btn-primary px-4 py-2 text-sm font-medium text-text-primary",
         className,
-        poppins.className,
+        manrope.className,
       )}
       onClick={onClick}
     >

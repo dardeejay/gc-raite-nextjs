@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { LoginButton } from "@/components/AuthButton";
 import HeroSection from "@/components/Home/Hero";
+import StatusSection from "../components/Home/StatusSection";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ const Home: NextPage = () => {
       <Header />
       <Navbar />
       <HeroSection />
+      <StatusSection />
     </div>
   );
 };

@@ -3,7 +3,8 @@ import poppins from "@/fonts/Poppins";
 import { twMerge } from "tailwind-merge";
 import { TRANSLATION } from "@/constants/translation";
 import Image from "next/image";
-
+import { LoginButton } from "../AuthButton";
+import manrope from "@/fonts/Manrope";
 interface IHeroSectionProps {}
 
 const HeroSection: React.FunctionComponent<IHeroSectionProps> = (props) => {
@@ -18,14 +19,17 @@ const HeroSection: React.FunctionComponent<IHeroSectionProps> = (props) => {
         <h1 className={"text-5xl font-bold text-text-primary"}>
           {TRANSLATION.hero_primary}
         </h1>
-        <p className={"text-text-muted mt-4 w-1/3 "}>
+        <p className={"mt-4 w-2/5 text-text-muted "}>
           {TRANSLATION.hero_secondary}
         </p>
+        <LoginButton className="mt-5">Get Started</LoginButton>
       </div>
-      <img
+      <Image
         src="/assets/images/earth.png"
         alt="Hero Image"
-        className=" scale-90"
+        width={2560}
+        height={1638}
+        className="scale-90"
       />
     </div>
   );

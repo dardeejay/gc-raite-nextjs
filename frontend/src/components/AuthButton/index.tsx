@@ -8,6 +8,7 @@ import { LogOut } from "lucide-react";
 import { useRouter } from "next/router";
 import { DropdownMenuShortcut } from "../ui/dropdown-menu";
 import CustomButton from "../custom-ui/CustomButton";
+import { twMerge } from "tailwind-merge";
 
 function selectProvider(providers: IdentityProvider[]): IdentityProvider {
   if (providers.length === 0) {
@@ -47,7 +48,10 @@ const LoginButton = ({
   }
 
   return (
-    <CustomButton onClick={() => login()} className={" px-10"}>
+    <CustomButton
+      onClick={() => login()}
+      className={twMerge("px-10", className)}
+    >
       {children || "Sign In"}
     </CustomButton>
   );
